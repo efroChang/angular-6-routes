@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 
 import { Routes } from "@angular/router";
 import { RouterModule } from '@angular/router';   // [KEY]
+import { AuthGuard } from "./auth-guard.service";
 
 // [KEY]: Declare the Routes:
 const appRoutes: Routes = 
@@ -24,6 +25,7 @@ const appRoutes: Routes =
   },
 
   { path: 'servers', 
+    canActivate: [AuthGuard],
     component: ServersComponent,
     children:
     [
