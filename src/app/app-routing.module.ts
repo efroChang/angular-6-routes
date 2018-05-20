@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { Routes } from "@angular/router";
 import { RouterModule } from '@angular/router';   // [KEY]
 import { AuthGuard } from "./auth-guard.service";
+import { CanDeactivateGuard } from "./servers/edit-server/can-deactivate-guard.service";
 
 // [KEY]: Declare the Routes:
 const appRoutes: Routes = 
@@ -31,7 +32,7 @@ const appRoutes: Routes =
     children:
     [
       { path: ':id', component: ServerComponent },
-      { path: ':id/edit', component: EditServerComponent }
+      { path: ':id/edit', component: EditServerComponent, canDeactivate: [ CanDeactivateGuard ] }
     ]  
   },
 
