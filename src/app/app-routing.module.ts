@@ -11,6 +11,7 @@ import { Routes } from "@angular/router";
 import { RouterModule } from '@angular/router';   // [KEY]
 import { AuthGuard } from "./auth-guard.service";
 import { CanDeactivateGuard } from "./servers/edit-server/can-deactivate-guard.service";
+import { ErrorPageComponent } from "./error-page/error-page.component";
 
 // [KEY]: Declare the Routes:
 const appRoutes: Routes = 
@@ -36,7 +37,8 @@ const appRoutes: Routes =
     ]  
   },
 
-  { path: 'not-found', component: PageNotFoundComponent },
+  // { path: 'not-found', component: PageNotFoundComponent },
+  { path: 'not-found', component: ErrorPageComponent, data: { message: 'Page Not Found!' } },
   { path: '**', redirectTo: '/not-found' }                    // [KEY]: "**" wildcard catch all and MUST be at the end of the Routes array
 ];
 
